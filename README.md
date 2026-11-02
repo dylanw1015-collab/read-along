@@ -18,7 +18,7 @@ After a book has been added, the app needs no internet, so it works in airplane 
 
 | Choice | Why / evidence |
 |---|---|
-| A web app, not an App Store app | It's free, and works on an iPhone without a Mac or a $99/yr developer account. Once added to the Home Screen, a web app gets its own offline storage ([WebKit: storage policy](https://webkit.org/blog/14403/updates-to-storage-policy/)). |
+| A web app, not an App Store app | It's free, and works on an iPhone without a Mac or a $99/yr developer account. On iOS 17, a site may store up to 60% of the disk, and a Home Screen web app gets the same quota as in Safari. The app asks for persistent storage, which WebKit is more likely to grant to a Home Screen app, so books aren't cleared when space runs low ([WebKit: storage policy](https://webkit.org/blog/14403/updates-to-storage-policy/)). |
 | A speed slider using `playbackRate` | Apple Books plays Media Overlays but has no speed setting for them. An HTML `<audio>` element plays at any rate, and `preservesPitch` (true by default) keeps the voice from sounding higher ([HTML spec](https://html.spec.whatwg.org/multipage/media.html#dom-media-preservespitch)). |
 | Plays EPUB 3 Media Overlays | Each SMIL `<par>` pairs a sentence on a page with an audio clip ([EPUB 3.3, Media Overlays](https://www.w3.org/TR/epub-33/#sec-media-overlays)). The sentence whose clip contains the current audio time gets the book's own highlight class, so the highlight looks the same as in Books. |
 | Unzipped once into IndexedDB | The book opens later without the network. Only the pages near the screen hold images in memory, which matters for books of hundreds of MB on a phone. |
